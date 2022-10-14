@@ -1,10 +1,10 @@
 <body style="background: #ffff12">
 
 <p align='center'>
-	<b>Hola Menes 👋, soy Truchorko_#5566</b><br>
+	<b>Hola Menes 👋, soy xXSirCarlosPXx#1528</b><br>
 	<a href="https://discord.tenicraft.cf">Discord</a> |
 	<a href="https://www.youtube.com/channel/UCgGCfLSWYbobojj58MQ0FWA">YouTube</a> |
-	<a href="https://www.tecnicraft.cf/">Team Arcades</a> |
+	<a href="https://www.tecnicraft.cf/">Tecnicraft Network</a> |
 	<a href="https://www.tecnicraft.cf/">xXSirCarlosPXx</a> |
 	<a href="https://Bot.tecnicraft.cf">My Bot</a>
 </p>
