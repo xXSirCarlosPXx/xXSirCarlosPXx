@@ -35,7 +35,7 @@
 
 <div>
 
-<a href="https://discord.com/users/852360638541594716"><img src="https://discord.c99.nl/widget/theme-2/852360638541594716.png" /></a>
+<a href="https://discord.com/users/852360638541594716"><img src="https://discord.c99.nl/widget/theme-3/852360638541594716.png" /></a>
 <!--<a href="https://discord.com/users/840025174651830333"><img src="https://discord.c99.nl/widget/theme-1/840025174651830333.png" /></a> -->
 	
 </div>
