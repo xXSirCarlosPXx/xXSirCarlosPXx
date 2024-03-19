@@ -26,8 +26,8 @@
 	
 ## 😁 About
 
-- Hola, soy **Truchorko.** Una persona normal que sabe programar en el campo eso es todo y ya no se mas nada de mi.
-- 👨‍💻 Website: [https://www.tecnicraft.cf](https://www.tecnicraft.cf/)
+- Hola, soy **Carlos.** Una persona normal que sabe programar en el campo eso es todo y ya no se mas nada de mi.
+<!-- - 👨‍💻 Website: [https://www.tecnicraft.cf](https://www.tecnicraft.cf/) -->
   
 <br />
 
@@ -36,15 +36,14 @@
 <div>
 
 <a href="https://discord.com/users/852360638541594716"><img src="https://discord.c99.nl/widget/theme-3/852360638541594716.png" /></a>
-<!--<a href="https://discord.com/users/840025174651830333"><img src="https://discord.c99.nl/widget/theme-1/840025174651830333.png" /></a> -->
 	
 </div>
 	
 <br />
    
-## ⚙️ Tecnologías que uso/Aprendiendo.
+## ⚙️ Tecnologías que uso.
    
-<img src="https://skillicons.dev/icons?i=html,css,javascript,typescript,tailwindcss,nestjs,nextjs,mongodb,heroku,github,bootstrap,git,sqlite,mysql,nodejs,react,express&theme=dark" />
+<img src="https://skillicons.dev/icons?i=html,css,js,ts,java,kotlin,cs,nextjs,discordjs,mongodb,heroku,github,gcp,azure,blender,vscode,idea,bootstrap,git,mysql,nodejs,react,express&theme=dark" />
 	
 </div>
 
@@ -76,6 +75,8 @@
 
 	
 <div>
+
+
 
 ![Snake animation](https://github.com/rafaballerini/rafaballerini/blob/output/github-contribution-grid-snake.svg)
 	
