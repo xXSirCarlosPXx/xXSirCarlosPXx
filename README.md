@@ -12,7 +12,6 @@
 
 - ⭐ Github Star ⭐ 
 - 📲 Mobile developer
-- 🎥 Te enseño a programar apps en [Youtube](https://youtube.com/@xXSirCarlosPXx?sub_confirmation=1)
 <br>
 
 ### ⚙️ &nbsp;GitHub Analytics
