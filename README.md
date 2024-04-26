@@ -1,8 +1,8 @@
 <div align="center">
 <h1 align="center">Hola, soy <a href="">Carlos</a> 👋</h1>
 </div>
-<img src="https://flic.kr/p/2pMueU9">
-<a data-flickr-embed="true" href="https://www.flickr.com/photos/200568141@N04/53679650420/in/dateposted-public/" title="pixel city"><img src="https://live.staticflickr.com/65535/53679650420_bfd906aa49_k.jpg" width="1920" height="1080" alt="pixel city"/></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+<!--<img src="https://flic.kr/p/2pMueU9"width="854" height="240">-->
+<img src="https://live.staticflickr.com/65535/53679650420_bfd906aa49_k.jpg" alt="pixel city"/>
 
 [![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCGlTKU0bgjSWBFahlCq-3ow?style=social)](https://youtube.com/@xXSirCarlosPXx)
 [![Twitch Status](https://img.shields.io/twitch/status/xXSirCarlosPXx?style=social)](https://www.twitch.tv/xXSirCarlosPXx)
