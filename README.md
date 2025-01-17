@@ -19,7 +19,7 @@
 
 <div align="center">
   
-  [![spotify-github-profile](https://spotify-github-profile.kittinanx.com/api/view?uid=pk7jr4olug99erkh7lgosv4x3&cover_image=true&theme=novatorem&show_offline=true&background_color=121212&interchange=true&bar_color=53b14f&bar_color_cover=true)](https://spotify-github-profile.kittinanx.com/api/view?uid=pk7jr4olug99erkh7lgosv4x3&redirect=true)
+  [![spotify-github-profile](https://spotify-github-profile.kittinanx.com/api/view?uid=31qhwd6nwvtdow3qyi4ncbgajt4u&cover_image=true&theme=novatorem&show_offline=true&background_color=121212&interchange=true&bar_color=53b14f&bar_color_cover=true)](https://spotify-github-profile.kittinanx.com/api/view?uid=pk7jr4olug99erkh7lgosv4x3&redirect=true)
   [![](https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/0-profile-details.svg)](https://github.com/xXSirCarlosPXx/github-profile-summary-cards)
   [![](https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/1-repos-per-language.svg)](https://github.com/xXSirCarlosPXx/github-profile-summary-cards) [![](https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/2-most-commit-language.svg)](https://github.com/xXSirCarlosPXx/github-profile-summary-cards)
   [![](https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/3-stats.svg)](https://github.com/xXSirCarlosPXx/github-profile-summary-cards) [![](https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/4-productive-time.svg)](https://github.com/xXSirCarlosPXx/github-profile-summary-cards)
