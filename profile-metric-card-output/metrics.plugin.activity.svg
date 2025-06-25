@@ -23,14 +23,14 @@
                                     </svg>
                                     <div class="content">
                                         Pushed 1 commit in
-                                        <span class="repo">xXSirCarlosPXx/xXSirCarlosPXx</span>
+                                        <span class="repo">xXSirCarlosPXx/cards</span>
                                     </div>
                                 </div>
                                 <div class="details">
-                                    <div>on branch <span class="code">profile-cards</span></div>
+                                    <div>on branch <span class="code">output</span></div>
                                     <div class="commit">
-                                        <div class="sha">#8c3f427</div>
-                                        <div class="message">Update Cards</div>
+                                        <div class="sha">#a17fd5e</div>
+                                        <div class="message">Deploy to GitHub pages</div>
                                     </div>
                                 </div>
                             </section>
@@ -49,7 +49,7 @@
                                 <div class="details">
                                     <div>on branch <span class="code">output</span></div>
                                     <div class="commit">
-                                        <div class="sha">#92f5716</div>
+                                        <div class="sha">#981d9e6</div>
                                         <div class="message">Deploy to GitHub pages</div>
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@
                                 <div class="details">
                                     <div>on branch <span class="code">profile-cards</span></div>
                                     <div class="commit">
-                                        <div class="sha">#aeca459</div>
+                                        <div class="sha">#22b8d50</div>
                                         <div class="message">Update Cards</div>
                                     </div>
                                 </div>
@@ -89,7 +89,7 @@
                                 <div class="details">
                                     <div>on branch <span class="code">output</span></div>
                                     <div class="commit">
-                                        <div class="sha">#bc9515e</div>
+                                        <div class="sha">#8570935</div>
                                         <div class="message">Deploy to GitHub pages</div>
                                     </div>
                                 </div>
@@ -103,14 +103,14 @@
                                     </svg>
                                     <div class="content">
                                         Pushed 1 commit in
-                                        <span class="repo">xXSirCarlosPXx/xXSirCarlosPXx</span>
+                                        <span class="repo">xXSirCarlosPXx/cards</span>
                                     </div>
                                 </div>
                                 <div class="details">
-                                    <div>on branch <span class="code">profile-cards</span></div>
+                                    <div>on branch <span class="code">output</span></div>
                                     <div class="commit">
-                                        <div class="sha">#f72d00d</div>
-                                        <div class="message">Update Cards</div>
+                                        <div class="sha">#719cf43</div>
+                                        <div class="message">Deploy to GitHub pages</div>
                                     </div>
                                 </div>
                             </section>
