@@ -4,7 +4,6 @@
 
 <br />
 
-<!-- Spotify -->
 <p align="center">
   <a href="https://spotify-github-profile.kittinanx.com/api/view?uid=31qhwd6nwvtdow3qyi4ncbgajt4u&redirect=true">
     <img
@@ -16,7 +15,6 @@
 
 <br />
 
-<!-- Tech stack -->
 <p align="center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="60" alt="JavaScript" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="60" alt="TypeScript" />
@@ -31,15 +29,12 @@
 
 <br />
 
-<!-- Summary cards desde tu propio repo -->
 <div align="center">
 
-  <!-- Profile details -->
   <img
     src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/0-profile-details.svg"
     alt="Profile details"
   />
-  <!-- Lenguajes -->
   <img
     src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/1-repos-per-language.svg"
     alt="Repos per language"
@@ -61,7 +56,6 @@
 
 <br />
 
-<!-- Snake de contribuciones -->
 <div align="center">
   <img
     src="https://github.com/xXSirCarlosPXx/xXSirCarlosPXx/blob/profile-cards/profile-snake-card-output/github-contribution-grid-snake.svg"
