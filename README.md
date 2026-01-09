@@ -66,7 +66,7 @@
     <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fedora/fedora-original.svg" height="50" alt="Fedora"/></td>
     <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows11/windows11-original.svg" height="50" alt="Windows"/></td>
     <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" height="50" alt="Docker"/></td>
-    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/traefik/traefik-original.svg" height="50" alt="Traefik"/></td>
+    <td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/traefikproxy/traefikproxy-original.svg" height="50" alt="Traefik"/></td>
   </tr>
 </table>
 
