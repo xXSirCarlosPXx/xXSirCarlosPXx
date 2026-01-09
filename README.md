@@ -14,9 +14,9 @@
   </a>
 </p>
 
-<br />
+<!--<br />
 
-<!--<p align="center">
+<p align="center">
   <strong>Lenguajes:</strong> 
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="30" alt="JavaScript" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="30" alt="TypeScript" />
