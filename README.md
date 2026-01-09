@@ -42,6 +42,4 @@
 
 <br clear="both">
 
-/*<img src="https://github.com/xXSirCarlosPXx/xXSirCarlosPXx/blob/profile-cards/profile-snake-card-output/github-contribution-grid-snake.svg" alt="Snake animation" />*/
-
 ###
