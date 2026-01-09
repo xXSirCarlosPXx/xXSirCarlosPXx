@@ -31,12 +31,12 @@
 
 <br />
 
-<!-- Summary cards desde TU repo -->
+<!-- Summary cards desde tu propio repo -->
 <div align="center">
 
-  <!-- Detalles de perfil -->
+  <!-- Profile details -->
   <img
-    src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/PROFILE-CARDS-BRANCH/profile-summary-card-output/github_dark/0-profile-details.svg"
+    src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/0-profile-details.svg"
     alt="Profile details"
   />
 
@@ -44,11 +44,11 @@
 
   <!-- Lenguajes -->
   <img
-    src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/PROFILE-CARDS-BRANCH/profile-summary-card-output/github_dark/1-repos-per-language.svg"
+    src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/1-repos-per-language.svg"
     alt="Repos per language"
   />
   <img
-    src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/PROFILE-CARDS-BRANCH/profile-summary-card-output/github_dark/2-most-commit-language.svg"
+    src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/2-most-commit-language.svg"
     alt="Most commit language"
   />
 
@@ -56,11 +56,11 @@
 
   <!-- Stats y tiempo productivo -->
   <img
-    src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/PROFILE-CARDS-BRANCH/profile-summary-card-output/github_dark/3-stats.svg"
+    src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/3-stats.svg"
     alt="Stats"
   />
   <img
-    src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/PROFILE-CARDS-BRANCH/profile-summary-card-output/github_dark/4-productive-time.svg"
+    src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/4-productive-time.svg"
     alt="Productive time"
   />
 
