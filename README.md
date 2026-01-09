@@ -1,5 +1,5 @@
 <div align="center">
-<h1 align="center">Hola, soy <a href="">Carlos</a> 👋</h1>
+  <h1 align="center">Hola, soy <a href="">Carlos</a> 👋</h1>
 </div>
 <!--<img src="https://flic.kr/p/2pMueU9"width="854" height="240">
 <img width="1024" height="372" src="https://github.com/xXSirCarlosPXx/xXSirCarlosPXx/blob/profile-cards/images/Pixel-City3.gif" alt="pixel city" />-->
@@ -18,8 +18,10 @@
 </div>-->
 
 <div align="center">
-  
   [![spotify-github-profile](https://spotify-github-profile.kittinanx.com/api/view?uid=31qhwd6nwvtdow3qyi4ncbgajt4u&cover_image=true&theme=novatorem&show_offline=true&background_color=170f0c&interchange=false&bar_color=53b14f&bar_color_cover=true)](https://spotify-github-profile.kittinanx.com/api/view?uid=31qhwd6nwvtdow3qyi4ncbgajt4u&redirect=true)
+</div>
+
+<div align="center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="60" alt="javascript logo"  />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="60" alt="typescript logo"  />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="60" alt="react logo"  />
@@ -29,17 +31,16 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" height="60" alt="csharp logo"  />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" height="60" alt="cplusplus logo"  />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="60" alt="java logo"  />
+</div>
+
+<div align="center">
   [![](https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/0-profile-details.svg)](https://github.com/xXSirCarlosPXx/github-profile-summary-cards)
   [![](https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/1-repos-per-language.svg)](https://github.com/xXSirCarlosPXx/github-profile-summary-cards) [![](https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/2-most-commit-language.svg)](https://github.com/xXSirCarlosPXx/github-profile-summary-cards)
   [![](https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/3-stats.svg)](https://github.com/xXSirCarlosPXx/github-profile-summary-cards) [![](https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/4-productive-time.svg)](https://github.com/xXSirCarlosPXx/github-profile-summary-cards)
   <img src="https://github.com/xXSirCarlosPXx/xXSirCarlosPXx/blob/profile-cards/profile-snake-card-output/github-contribution-grid-snake.svg" alt="Snake animation" />
 </div>
 
-###
-
-
 <!--<img align="right" height="150" src="https://i.imgflip.com/65efzo.gif"  />-->
 
 <br clear="both">
 
-###
