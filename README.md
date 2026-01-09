@@ -1,13 +1,20 @@
 <div align="center">
-  <h1>Hola, soy Carlos</h1>
+  <h1>Hola, soy Carlos 👋</h1>
 </div>
 
-<!-- Spotify (mejor en HTML para que funcione dentro del div) -->
+<br />
+
+<!-- Spotify -->
 <p align="center">
   <a href="https://spotify-github-profile.kittinanx.com/api/view?uid=31qhwd6nwvtdow3qyi4ncbgajt4u&redirect=true">
-    <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=31qhwd6nwvtdow3qyi4ncbgajt4u&cover_image=true&theme=novatorem&show_offline=true&background_color=170f0c&interchange=false&bar_color=53b14f&bar_color_cover=true" alt="Spotify Now Playing" />
+    <img
+      src="https://spotify-github-profile.kittinanx.com/api/view?uid=31qhwd6nwvtdow3qyi4ncbgajt4u&cover_image=true&theme=novatorem&show_offline=true&background_color=170f0c&interchange=false&bar_color=53b14f&bar_color_cover=true"
+      alt="Spotify Now Playing"
+    />
   </a>
 </p>
+
+<br />
 
 <!-- Tech stack -->
 <p align="center">
@@ -22,22 +29,49 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="60" alt="Java" />
 </p>
 
-<!-- Summary cards (API) -->
-<p align="center">
-  <img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=xXSirCarlosPXx&theme=github_dark" />
-</p>
+<br />
 
-<p align="center">
-  <img src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=xXSirCarlosPXx&theme=github_dark" />
-  <img src="http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=xXSirCarlosPXx&theme=github_dark" />
-</p>
+<!-- Summary cards desde TU repo -->
+<div align="center">
 
-<p align="center">
-  <img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=xXSirCarlosPXx&theme=github_dark" />
-  <img src="http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=xXSirCarlosPXx&theme=github_dark&utcOffset=-5" />
-</p>
+  <!-- Detalles de perfil -->
+  <img
+    src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/PROFILE-CARDS-BRANCH/profile-summary-card-output/github_dark/0-profile-details.svg"
+    alt="Profile details"
+  />
 
-<!-- Snake (si ya lo generas con GitHub Actions) -->
-<p align="center">
-  <img src="https://github.com/xXSirCarlosPXx/xXSirCarlosPXx/blob/profile-cards/profile-snake-card-output/github-contribution-grid-snake.svg" alt="Snake animation" />
-</p>
+  <br /><br />
+
+  <!-- Lenguajes -->
+  <img
+    src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/PROFILE-CARDS-BRANCH/profile-summary-card-output/github_dark/1-repos-per-language.svg"
+    alt="Repos per language"
+  />
+  <img
+    src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/PROFILE-CARDS-BRANCH/profile-summary-card-output/github_dark/2-most-commit-language.svg"
+    alt="Most commit language"
+  />
+
+  <br /><br />
+
+  <!-- Stats y tiempo productivo -->
+  <img
+    src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/PROFILE-CARDS-BRANCH/profile-summary-card-output/github_dark/3-stats.svg"
+    alt="Stats"
+  />
+  <img
+    src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/PROFILE-CARDS-BRANCH/profile-summary-card-output/github_dark/4-productive-time.svg"
+    alt="Productive time"
+  />
+
+</div>
+
+<br />
+
+<!-- Snake de contribuciones -->
+<div align="center">
+  <img
+    src="https://github.com/xXSirCarlosPXx/xXSirCarlosPXx/blob/profile-cards/profile-snake-card-output/github-contribution-grid-snake.svg"
+    alt="Snake animation"
+  />
+</div>
