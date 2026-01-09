@@ -4,7 +4,7 @@
 <!--<img src="https://flic.kr/p/2pMueU9"width="854" height="240">
 <img width="1024" height="372" src="https://github.com/xXSirCarlosPXx/xXSirCarlosPXx/blob/profile-cards/images/Pixel-City3.gif" alt="pixel city" />-->
 
-[![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCGlTKU0bgjSWBFahlCq-3ow?style=social)](https://youtube.com/@xXSirCarlosPXx)
+<!--[![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCGlTKU0bgjSWBFahlCq-3ow?style=social)](https://youtube.com/@xXSirCarlosPXx)
 [![Twitch Status](https://img.shields.io/twitch/status/xXSirCarlosPXx?style=social)](https://www.twitch.tv/xXSirCarlosPXx)
 [![GitHub followers](https://img.shields.io/github/followers/xXSirCarlosPXx?style=social)](https://github.com/xXSirCarlosPXx)
 ![Discord Shield](https://discordapp.com/api/guilds/1093350624185299005/widget.png?style=shield)
@@ -15,7 +15,7 @@
   <img src="https://img.shields.io/static/v1?message=Discord&logo=discord&label=&color=7289DA&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="discord logo"  />
   <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="gmail logo"  />
   <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="linkedin logo"  />
-</div>
+</div>-->
 
 <div align="center">
   
