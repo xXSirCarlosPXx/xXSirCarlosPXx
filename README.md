@@ -40,8 +40,6 @@
     alt="Profile details"
   />
 
-  <br /><br />
-
   <!-- Lenguajes -->
   <img
     src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/1-repos-per-language.svg"
@@ -51,8 +49,6 @@
     src="https://raw.githubusercontent.com/xXSirCarlosPXx/xXSirCarlosPXx/profile-cards/profile-summary-card-output/date_night/2-most-commit-language.svg"
     alt="Most commit language"
   />
-
-  <br /><br />
 
   <!-- Stats y tiempo productivo -->
   <img
