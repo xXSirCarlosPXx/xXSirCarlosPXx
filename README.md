@@ -32,7 +32,7 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="50" alt="HTML5" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="50" alt="CSS3" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" height="50" alt="Bootstrap" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" height="50" alt="TailwindCSS" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" height="50" alt="TailwindCSS" />
 </p>
 
 <p align="center">
@@ -90,6 +90,6 @@
 <h3 align="center">Sobre mí</h3>
 
 <p align="center">
-  🎓 Estudiante de Sistemas en Ecuador · 💻 Me gusta crear proyectos web y apps.<br/>
+  🎓 Estudiante de Sistemas · 💻 Me gusta crear proyectos web y apps.<br/>
   🎮 Fan de los videojuegos y el modding · 🚀 Siempre aprendiendo algo nuevo.
 </p>
