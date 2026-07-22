@@ -79,5 +79,5 @@
 <br />
 
 <p align="center">
-  🎓 Estudiante de Sistemas · 🐧 Arch/Fedora/Windows · 🎮 Videojuegos y modding
+  🎓 Estudiante de Sistemas · 🐧 Arch/CachyOS/Windows · 🎮 Videojuegos y modding
 </p>
