@@ -1,0 +1,713 @@
+# .github/workflows/profile-cards.yml
+#
+# Vive SOLO en xXSirCarlosPXx/xXSirCarlosPXx, rama main.
+# El repo "cards" y las ramas "output" / "github-pages" ya no hacen falta:
+# todo se publica directo en la rama "profile-cards" de este mismo repo,
+# vía stefanzweifel/git-auto-commit-action (reemplaza a BranchStorageAction,
+# copycat-action y ghaction-github-pages, que hacían lo mismo tres veces).
+#
+# CAMBIOS/MEJORAS vs los 3 workflows originales:
+#   - Cron arreglado: "0 */12 * * *" (antes corría cada minuto por error)
+#   - Acciones third-party fijadas a su último release en vez de @latest
+#   - Un solo mecanismo de publicación (antes había 3 distintos)
+#   - `template: repository` apuntaba a "repo: metrics" (el repo del autor
+#     de la librería, copiado del ejemplo de la doc) -> corregido a MigaBot
+#   - plugin_steam_user pasó de "0" (placeholder inválido) a un secret real
+#   - permissions explícitos + concurrency para evitar runs solapados
+#
+# Secrets requeridos:
+#   METRICS_TOKEN        -> PAT (classic) scope "repo" + "read:user"
+#   SUMMARY_GITHUB_TOKEN  -> PAT para vn7n24fzkq/github-profile-summary-cards
+#                            (puede ser el mismo valor que METRICS_TOKEN)
+# Secrets opcionales (borra el job si no los vas a usar):
+#   SPOTIFY_TOKENS, GOOGLE_MAP_TOKEN, STEAM_TOKEN, STEAM_USER,
+#   TWITTER_TOKEN, TWITTER_USER, WAKATIME_TOKEN, STACKOVERFLOW_ID,
+#   ANILIST_NAME
+
+name: Profile Cards
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */12 * * *"   # cada 12 horas en punto
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-cards
+  cancel-in-progress: false
+
+# Plantilla usada por cada job "metrics-*":
+#   1. genera el SVG con lowlighter/metrics@latest
+#   2. lo publica en la rama profile-cards con git-auto-commit-action@v7
+# lowlighter/metrics@latest es intencional: es el tag flotante que el
+# propio proyecto mantiene y recomienda en su documentación oficial.
+
+jobs:
+
+  # ---------- Summary cards (vn7n24fzkq) ----------
+  summary-cards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Summary Cards
+        uses: vn7n24fzkq/github-profile-summary-cards@release
+        env:
+          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
+        with:
+          USERNAME: ${{ github.repository_owner }}
+          UTC_OFFSET: -5
+          AUTO_PUSH: false
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          repository: profile-summary-card-output
+          branch: profile-cards
+          create_branch: true
+          commit_message: "chore: update summary cards"
+          file_pattern: "*.svg"
+
+  # ---------- Snake ----------
+  snake:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          repository: dist
+          branch: profile-cards
+          create_branch: true
+          commit_message: "chore: update snake card"
+          file_pattern: "*.svg"
+
+  # ---------- Metrics: base / header ----------
+  metrics-github:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.github.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update github metrics", file_pattern: "metrics.github.svg"}
+
+  metrics-base:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.base.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: header, activity, community, repositories, metadata
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update base metrics", file_pattern: "metrics.base.svg"}
+
+  metrics-github-classic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.classic.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: header, repositories
+          plugin_lines: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update classic metrics", file_pattern: "metrics.classic.svg"}
+
+  metrics-introduction-user:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.introduction.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: ${{ github.repository_owner }}
+          base: header
+          plugin_introduction: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update introduction", file_pattern: "metrics.introduction.svg"}
+
+  # ---------- Metrics: actividad ----------
+  metrics-achievements:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.achievements.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_achievements: yes
+          plugin_achievements_threshold: X
+          plugin_achievements_secrets: yes
+          plugin_achievements_limit: 0
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update achievements", file_pattern: "metrics.achievements.svg"}
+
+  metrics-activity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.activity.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_activity: yes
+          plugin_activity_limit: 5
+          plugin_activity_days: 0
+          plugin_activity_filter: all
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update activity", file_pattern: "metrics.activity.svg"}
+
+  metrics-followup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.followup.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_followup: yes
+          plugin_followup_indepth: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update followup", file_pattern: "metrics.followup.svg"}
+
+  metrics-discussions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.discussions.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_discussions: yes
+          plugin_discussions_categories_limit: 8
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update discussions", file_pattern: "metrics.discussions.svg"}
+
+  metrics-reactions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.reactions.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_reactions: yes
+          plugin_reactions_details: percentage
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update reactions", file_pattern: "metrics.reactions.svg"}
+
+  metrics-notable:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.notable.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_notable: yes
+          plugin_notable_indepth: yes
+          plugin_notable_repositories: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update notable", file_pattern: "metrics.notable.svg"}
+
+  metrics-fortune:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.fortune.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_fortune: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update fortune", file_pattern: "metrics.fortune.svg"}
+
+  metrics-support:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.support.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_support: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update support", file_pattern: "metrics.support.svg"}
+
+  # ---------- Metrics: calendarios ----------
+  metrics-calendar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.calendar.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_calendar: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update calendar", file_pattern: "metrics.calendar.svg"}
+
+  metrics-isocalendar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.isocalendar.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_isocalendar: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update isocalendar", file_pattern: "metrics.isocalendar.svg"}
+
+  metrics-habits:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.habits.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_habits: yes
+          plugin_habits_facts: no
+          plugin_habits_charts: yes
+          config_timezone: America/Guayaquil
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update habits", file_pattern: "metrics.habits.svg"}
+
+  # ---------- Metrics: código / repos ----------
+  metrics-code:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.code.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_code: yes
+          plugin_code_languages: javascript, typescript, java
+          plugin_code_load: 400
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update code metrics", file_pattern: "metrics.code.svg"}
+
+  metrics-languages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.languages.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_languages: yes
+          plugin_languages_indepth: yes
+          plugin_languages_details: lines, bytes-size
+          plugin_languages_analysis_timeout: 15
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update languages", file_pattern: "metrics.languages.svg"}
+
+  metrics-dists:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.dists.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_dists: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update dists", file_pattern: "metrics.dists.svg"}
+
+  metrics-lines:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.lines.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: repositories
+          plugin_lines: yes
+          plugin_lines_delay: 30
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update lines", file_pattern: "metrics.lines.svg"}
+
+  metrics-lines-history:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.lines.history.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_lines: yes
+          plugin_lines_delay: 30
+          plugin_lines_sections: repositories, history
+          plugin_lines_history_limit: 1
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update lines history", file_pattern: "metrics.lines.history.svg"}
+
+  metrics-repositories:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.repositories.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_repositories: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update repositories", file_pattern: "metrics.repositories.svg"}
+
+  metrics-projects:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.projects.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_projects: yes
+          plugin_projects_descriptions: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update projects", file_pattern: "metrics.projects.svg"}
+
+  metrics-topics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.topics.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_topics: yes
+          plugin_topics_limit: 0
+          plugin_topics_mode: icons
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update topics", file_pattern: "metrics.topics.svg"}
+
+  metrics-traffic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.traffic.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: repositories
+          plugin_traffic: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update traffic", file_pattern: "metrics.traffic.svg"}
+
+  metrics-licenses:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.licenses.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          template: repository
+          repo: MigaBot
+          plugin_licenses: yes
+          plugin_licenses_setup: bash -c '[[ -f package.json ]] && npm ci || true'
+          plugin_licenses_legal: yes
+          plugin_licenses_ratio: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update licenses", file_pattern: "metrics.licenses.svg"}
+
+  # ---------- Metrics: sociales / comunidad ----------
+  metrics-people:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.people.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_people: yes
+          plugin_people_types: followers, sponsors
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update people", file_pattern: "metrics.people.svg"}
+
+  metrics-people-repository:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.people.repository.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          template: repository
+          repo: MigaBot
+          plugin_people: yes
+          plugin_people_types: contributors, stargazers, watchers, sponsors
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update people repository", file_pattern: "metrics.people.repository.svg"}
+
+  metrics-contributors:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.contributors.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          template: repository
+          repo: MigaBot
+          plugin_contributors: yes
+          plugin_contributors_contributions: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update contributors", file_pattern: "metrics.contributors.svg"}
+
+  metrics-sponsors:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.sponsors.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_sponsors: yes
+          plugin_sponsors_past: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update sponsors", file_pattern: "metrics.sponsors.svg"}
+
+  metrics-stargazers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.stargazers.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_stargazers: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update stargazers", file_pattern: "metrics.stargazers.svg"}
+
+  # Requiere GOOGLE_MAP_TOKEN de pago (Google Maps Static/Geocoding API).
+  # Bórralo si no vas a habilitar facturación en Google Cloud.
+  metrics-stargazers-worldmap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.stargazers.worldmap.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_stargazers: yes
+          plugin_stargazers_charts: no
+          plugin_stargazers_worldmap: yes
+          plugin_stargazers_worldmap_token: ${{ secrets.GOOGLE_MAP_TOKEN }}
+          plugin_stargazers_worldmap_sample: 200
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update stargazers worldmap", file_pattern: "metrics.stargazers.worldmap.svg"}
+
+  metrics-stars:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.stars.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          plugin_stars: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update stars", file_pattern: "metrics.stars.svg"}
+
+  metrics-starlists-repository:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.starlists.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_starlists: yes
+          plugin_starlists_limit_repositories: 2
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update starlists", file_pattern: "metrics.starlists.svg"}
+
+  metrics-starlists-languages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.starlists.languages.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_starlists: yes
+          plugin_starlists_languages: yes
+          plugin_starlists_limit_languages: 8
+          plugin_starlists_limit_repositories: 0
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update starlists languages", file_pattern: "metrics.starlists.languages.svg"}
+
+  # ---------- Metrics: perfiles externos ----------
+  metrics-leetcode:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.leetcode.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_leetcode: yes
+          plugin_leetcode_sections: solved, skills, recent
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update leetcode", file_pattern: "metrics.leetcode.svg"}
+
+  # Requiere STEAM_TOKEN (API key) y STEAM_USER (tu SteamID64 real).
+  metrics-steam:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.steam.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_steam_token: ${{ secrets.STEAM_TOKEN }}
+          plugin_steam: yes
+          plugin_steam_user: ${{ secrets.STEAM_USER }}
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update steam", file_pattern: "metrics.steam.svg"}
+
+  metrics-wakatime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.wakatime.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_wakatime: yes
+          plugin_wakatime_sections: time, projects, projects-graphs, languages, languages-graphs, editors, editors-graphs, os, os-graphs
+          plugin_wakatime_token: ${{ secrets.WAKATIME_TOKEN }}
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update wakatime", file_pattern: "metrics.wakatime.svg"}
+
+  metrics-stackoverflow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.stackoverflow.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_stackoverflow: yes
+          plugin_stackoverflow_user: ${{ secrets.STACKOVERFLOW_ID }}
+          plugin_stackoverflow_sections: answers-top, answers-recent, questions-top, questions-recent
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update stackoverflow", file_pattern: "metrics.stackoverflow.svg"}
+
+  # Requiere TWITTER_TOKEN de pago (X API v2). Bórralo si no tienes acceso.
+  metrics-tweets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.tweets.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_tweets: yes
+          plugin_tweets_token: ${{ secrets.TWITTER_TOKEN }}
+          plugin_tweets_attachments: yes
+          plugin_tweets_user: ${{ secrets.TWITTER_USER }}
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update tweets", file_pattern: "metrics.tweets.svg"}
+
+  metrics-music:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.music.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_music: yes
+          plugin_music_provider: spotify
+          plugin_music_mode: recent
+          plugin_music_token: ${{ secrets.SPOTIFY_TOKENS }}
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update music", file_pattern: "metrics.music.svg"}
+
+  metrics-anilist-anime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.anilist.anime.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_anilist: yes
+          plugin_anilist_user: ${{ secrets.ANILIST_NAME }}
+          plugin_anilist_medias: anime
+          plugin_anilist_sections: favorites, watching
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update anilist anime", file_pattern: "metrics.anilist.anime.svg"}
+
+  metrics-anilist-manga:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.anilist.manga.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_anilist: yes
+          plugin_anilist_user: ${{ secrets.ANILIST_NAME }}
+          plugin_anilist_medias: manga
+          plugin_anilist_sections: favorites, reading
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update anilist manga", file_pattern: "metrics.anilist.manga.svg"}
+
+  metrics-anilist-characters:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.anilist.characters.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_anilist: yes
+          plugin_anilist_user: ${{ secrets.ANILIST_NAME }}
+          plugin_anilist_sections: characters
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update anilist characters", file_pattern: "metrics.anilist.characters.svg"}
+
+  # ---------- Metrics: vista de repositorio (MigaBot) ----------
+  metrics-introduction-repository:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.introduction.repository.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          template: repository
+          repo: MigaBot
+          base: header
+          plugin_introduction: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update introduction repository", file_pattern: "metrics.introduction.repository.svg"}
+
+  metrics-repository:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          template: repository
+          filename: metrics.repository.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: ${{ github.repository_owner }}
+          repo: MigaBot
+          plugin_lines: yes
+          plugin_followup: yes
+          plugin_projects: yes
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with: {branch: profile-cards, create_branch: true, commit_message: "chore: update repository metrics", file_pattern: "metrics.repository.svg"}
