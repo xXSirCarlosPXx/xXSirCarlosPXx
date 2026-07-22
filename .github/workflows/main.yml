@@ -93,6 +93,9 @@ jobs:
   metrics-github:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.github.svg
@@ -103,6 +106,9 @@ jobs:
   metrics-base:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.base.svg
@@ -114,6 +120,9 @@ jobs:
   metrics-github-classic:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.classic.svg
@@ -126,6 +135,9 @@ jobs:
   metrics-introduction-user:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.introduction.svg
@@ -140,6 +152,9 @@ jobs:
   metrics-achievements:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.achievements.svg
@@ -155,6 +170,9 @@ jobs:
   metrics-activity:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.activity.svg
@@ -170,6 +188,9 @@ jobs:
   metrics-followup:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.followup.svg
@@ -183,6 +204,9 @@ jobs:
   metrics-discussions:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.discussions.svg
@@ -196,6 +220,9 @@ jobs:
   metrics-reactions:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.reactions.svg
@@ -209,6 +236,9 @@ jobs:
   metrics-notable:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.notable.svg
@@ -223,6 +253,9 @@ jobs:
   metrics-fortune:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.fortune.svg
@@ -235,6 +268,9 @@ jobs:
   metrics-support:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.support.svg
@@ -248,6 +284,9 @@ jobs:
   metrics-calendar:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.calendar.svg
@@ -260,6 +299,9 @@ jobs:
   metrics-isocalendar:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.isocalendar.svg
@@ -272,6 +314,9 @@ jobs:
   metrics-habits:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.habits.svg
@@ -288,6 +333,9 @@ jobs:
   metrics-code:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.code.svg
@@ -302,6 +350,9 @@ jobs:
   metrics-languages:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.languages.svg
@@ -317,6 +368,9 @@ jobs:
   metrics-dists:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.dists.svg
@@ -329,6 +383,9 @@ jobs:
   metrics-lines:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.lines.svg
@@ -342,6 +399,9 @@ jobs:
   metrics-lines-history:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.lines.history.svg
@@ -357,6 +417,9 @@ jobs:
   metrics-repositories:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.repositories.svg
@@ -369,6 +432,9 @@ jobs:
   metrics-projects:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.projects.svg
@@ -382,6 +448,9 @@ jobs:
   metrics-topics:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.topics.svg
@@ -396,6 +465,9 @@ jobs:
   metrics-traffic:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.traffic.svg
@@ -408,6 +480,9 @@ jobs:
   metrics-licenses:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.licenses.svg
@@ -426,6 +501,9 @@ jobs:
   metrics-people:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.people.svg
@@ -439,6 +517,9 @@ jobs:
   metrics-people-repository:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.people.repository.svg
@@ -454,6 +535,9 @@ jobs:
   metrics-contributors:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.contributors.svg
@@ -469,6 +553,9 @@ jobs:
   metrics-sponsors:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.sponsors.svg
@@ -482,6 +569,9 @@ jobs:
   metrics-stargazers:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.stargazers.svg
@@ -496,6 +586,9 @@ jobs:
   metrics-stargazers-worldmap:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.stargazers.worldmap.svg
@@ -512,6 +605,9 @@ jobs:
   metrics-stars:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.stars.svg
@@ -524,6 +620,9 @@ jobs:
   metrics-starlists-repository:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.starlists.svg
@@ -537,6 +636,9 @@ jobs:
   metrics-starlists-languages:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.starlists.languages.svg
@@ -553,6 +655,9 @@ jobs:
   metrics-leetcode:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.leetcode.svg
@@ -567,6 +672,9 @@ jobs:
   metrics-steam:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.steam.svg
@@ -581,6 +689,9 @@ jobs:
   metrics-wakatime:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.wakatime.svg
@@ -595,6 +706,9 @@ jobs:
   metrics-stackoverflow:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.stackoverflow.svg
@@ -610,6 +724,9 @@ jobs:
   metrics-tweets:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.tweets.svg
@@ -625,6 +742,9 @@ jobs:
   metrics-music:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.music.svg
@@ -640,6 +760,9 @@ jobs:
   metrics-anilist-anime:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.anilist.anime.svg
@@ -655,6 +778,9 @@ jobs:
   metrics-anilist-manga:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.anilist.manga.svg
@@ -670,6 +796,9 @@ jobs:
   metrics-anilist-characters:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.anilist.characters.svg
@@ -685,6 +814,9 @@ jobs:
   metrics-introduction-repository:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           filename: metrics.introduction.repository.svg
@@ -699,6 +831,9 @@ jobs:
   metrics-repository:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7
+        with:
+         ref: profile-cards
       - uses: lowlighter/metrics@latest
         with:
           template: repository
